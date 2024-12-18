@@ -1,10 +1,9 @@
-import { PhoneCall } from "lucide-react";
 import React from "react";
+import { PhoneCall } from "lucide-react";
 
-const ContactSection = () => {
+const Contact = () => {
   const phoneNumber = "6281314615546";
   const whatsappLink = `https://wa.me/${phoneNumber}`;
-
   return (
     <section
       id="contact"
@@ -23,17 +22,8 @@ const ContactSection = () => {
           <PhoneCall /> Hubungi via WhatsApp
         </a>
       </div>
-
-      {/* Footer Section */}
-      <footer className="text-white py-4 mt-auto bg-black/10">
-        <div className="container mx-auto text-center">
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} NusaCatering. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </section>
   );
 };
 
-export default ContactSection;
+export default Contact;
