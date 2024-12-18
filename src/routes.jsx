@@ -11,7 +11,8 @@ import PackageDetail from "./pages/PackageDetail";
 import OrderForm from "./pages/OrderForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import OrderHistory from "./pages/OrderHistory";
-import Dashboard from "./pages/Dashboard"; // Halaman dashboard admin
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
 
 export const publicRoutes = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ export const publicRoutes = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/package/:id" element={<PackageDetail />} />
+      <Route path="/unauthorized" element={<NotFound />} />
 
       {/* Rute Terproteksi */}
       <Route element={<ProtectedRoute />}>
