@@ -1,10 +1,12 @@
 import { LogIn, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,52 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        setTimeout(() => {
+          const delayedElement = document.getElementById(id);
+          if (delayedElement) {
+            delayedElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      }
+    }
+  }, [location]);
+
+  const handleLinkClick = (href) => {
+    if (href.startsWith("#")) {
+      const id = href.substring(1);
+
+      if (location.pathname === "/") {
+        const element = document.getElementById(id);
+        if (element) {
+          const yOffset = -50; // Offset for scroll
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      } else {
+        navigate(`/${href}`, { replace: false });
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            const yOffset = -50; // Offset for scroll
+            const y =
+              element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 300); // Delay untuk menunggu navigasi selesai
+      }
+    } else {
+      navigate(href);
+    }
+  };
 
   const links = [
     { href: "/", label: "Home" },
@@ -34,8 +82,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link
-          to="/"
+        <a
+          href="/"
           className={`
             flex items-center text-2xl font-serif 
             ${isScrolled ? "text-primary" : "text-white"}
@@ -47,7 +95,7 @@ const Navbar = () => {
             className="w-10 h-auto mr-2"
           />
           <span>NusaCatering</span>
-        </Link>
+        </a>
 
         {/* Navbar Links */}
         <div
@@ -60,7 +108,14 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`${isScrolled ? "text-black" : "text-white"}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick(link.href);
+              }}
+              className={`
+                ${isScrolled ? "text-black" : "text-white"} 
+                focus:outline-none
+              `}
             >
               {link.label}
             </a>
@@ -68,8 +123,8 @@ const Navbar = () => {
         </div>
 
         {/* WhatsApp Button */}
-        <Link
-          to={"/login"}
+        <a
+          href="/login"
           className={`
             btn rounded-full px-6 py-2 text-lg font-medium border-2 
             transition duration-300 flex items-center gap-2 
@@ -82,7 +137,7 @@ const Navbar = () => {
         >
           <LogIn className="size-5" />
           Masuk
-        </Link>
+        </a>
       </div>
     </nav>
   );
