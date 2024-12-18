@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { transactionAPI } from "../../api/apiService";
+import Loading from "../../components/Loading";
 
 const Modal = ({ show, onClose, order, onApprove, onReject }) => {
   const [paymentType, setPaymentType] = useState("");
@@ -208,7 +209,8 @@ const Orders = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading bgColor="bg-light" color="border-red-800" />;
+
   if (error) return <p>Error: {error}</p>;
 
   return (

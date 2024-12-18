@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   const { handleLogout } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-light flex">
       {/* Sidebar */}
       <div className="w-64 bg-gradient text-white fixed h-full flex flex-col">
         <div className="p-6">
