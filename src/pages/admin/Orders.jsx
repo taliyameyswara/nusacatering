@@ -122,7 +122,7 @@ const Modal = ({ show, onClose, order, onApprove, onReject }) => {
             className={`px-4 py-1.5 rounded-lg text-white ${
               order.status !== "pending"
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-green-500 hover:bg-green-600"
+                : "bg-green-700 hover:bg-green-600"
             }`}
             onClick={handleApproveClick}
             disabled={order.status !== "pending"}
@@ -133,7 +133,7 @@ const Modal = ({ show, onClose, order, onApprove, onReject }) => {
             className={`px-4 py-1.5 rounded-lg text-white ${
               order.status !== "pending"
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-red-500 hover:bg-red-600"
+                : "bg-red-700 hover:bg-red-600"
             }`}
             onClick={() => onReject(order.id)}
             disabled={order.status !== "pending"}
@@ -187,9 +187,10 @@ const Orders = () => {
 
   const handleApprove = async (id, data) => {
     try {
+      setLoading(true);
       const response = await transactionAPI.approveTransaction(id, data);
       alert(response.message || "Pesanan berhasil di-approve.");
-      await fetchOrders(); // Auto-reload data
+      await fetchOrders();
       handleCloseModal();
     } catch (err) {
       console.error("Error approving transaction:", err);
@@ -199,6 +200,7 @@ const Orders = () => {
 
   const handleReject = async (id) => {
     try {
+      setLoading(true);
       const response = await transactionAPI.rejectTransaction(id);
       alert(response.message || "Pesanan berhasil di-reject.");
       await fetchOrders(); // Auto-reload data
@@ -242,10 +244,10 @@ const Orders = () => {
               <td
                 className={`border-b py-2 px-4 capitalize ${
                   order.status === "pending"
-                    ? "text-yellow-500"
+                    ? "text-yellow-600"
                     : order.status === "approved"
-                    ? "text-green-500"
-                    : "text-red-500"
+                    ? "text-green-600"
+                    : "text-red-600"
                 }`}
               >
                 {order.status}
