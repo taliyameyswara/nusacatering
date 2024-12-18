@@ -153,7 +153,7 @@ const Navbar = () => {
                 {user.role === "admin" && (
                   <>
                     <Link
-                      to="/dashboard"
+                      to="/admin/dashboard"
                       className="block px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 rounded-lg"
                     >
                       <LayoutDashboardIcon className="inline-block mr-2 size-4" />
