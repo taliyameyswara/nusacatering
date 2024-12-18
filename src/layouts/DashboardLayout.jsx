@@ -30,7 +30,7 @@ const DashboardLayout = () => {
           <NavLink
             to="/admin/dashboard"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg flex items-center ${
+              `px-4 py-2 rounded-xl flex items-center ${
                 isActive ? "bg-light text-primary font-semibold" : ""
               }`
             }
@@ -41,7 +41,7 @@ const DashboardLayout = () => {
           <NavLink
             to="/admin/orders"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg flex items-center ${
+              `px-4 py-2 rounded-xl flex items-center ${
                 isActive ? "bg-light text-primary font-semibold" : ""
               }`
             }
@@ -52,7 +52,7 @@ const DashboardLayout = () => {
           <NavLink
             to="/admin/users"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg flex items-center ${
+              `px-4 py-2 rounded-xl flex items-center ${
                 isActive ? "bg-light text-primary font-semibold" : ""
               }`
             }
@@ -62,7 +62,7 @@ const DashboardLayout = () => {
           </NavLink>
         </nav>
         <button
-          className="m-5 px-4 py-2 rounded-lg mt-auto  hover:bg-primary-dark text-white flex items-center"
+          className="m-5 px-4 py-2 rounded-xl mt-auto  hover:bg-primary-dark text-white flex items-center"
           onClick={handleLogout}
         >
           <LogOut size={24} className="mr-2" />

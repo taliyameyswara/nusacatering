@@ -73,6 +73,7 @@ const OrderForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form Submitted");
 
     const packageId = parseInt(id, 10);
 

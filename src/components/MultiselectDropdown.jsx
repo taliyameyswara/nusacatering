@@ -28,8 +28,12 @@ const MultiselectDropdown = ({ options, onSave, limit }) => {
     <div className="relative w-full">
       {/* Dropdown Button */}
       <button
+        type="button"
         className="w-full border rounded-lg px-4 py-2 text-left bg-white focus:outline-none"
-        onClick={toggleDropdown}
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleDropdown();
+        }}
       >
         {selectedItems.length > 0
           ? `Menu terpilih (${selectedItems.length}/${limit})`
