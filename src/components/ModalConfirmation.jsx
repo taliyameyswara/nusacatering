@@ -1,5 +1,6 @@
 import React from "react";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 const ModalConfirmation = ({
   isOpen,
@@ -27,12 +28,13 @@ const ModalConfirmation = ({
               >
                 Batal
               </button>
-              <button
+              <Link
                 onClick={onConfirm}
+                to="/"
                 className="px-4 py-1.5 bg-red-800 text-white rounded-lg hover:bg-red-700"
               >
                 Keluar
-              </button>
+              </Link>
             </div>
           </>
         )}

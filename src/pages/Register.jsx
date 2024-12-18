@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Register = () => {
@@ -134,9 +134,9 @@ const Register = () => {
         </form>
         <p className="text-sm text-gray-600 text-center mt-4">
           Sudah punya akun?{" "}
-          <a href="/login" className="text-primary hover:underline">
+          <Link to="/login" className="text-primary hover:underline">
             Masuk
-          </a>
+          </Link>
         </p>
       </div>
     </div>
