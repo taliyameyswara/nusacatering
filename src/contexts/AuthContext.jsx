@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
       // Redirect based on role
       if (user.role === "admin") {
-        window.location.href = "/dashboard"; // Arahkan ke halaman admin
+        window.location.href = "/admin/dashboard"; // Arahkan ke halaman admin
       } else {
         window.location.href = "/"; // Arahkan ke halaman user biasa
       }
