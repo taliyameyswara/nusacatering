@@ -123,8 +123,8 @@ const Navbar = () => {
 
           {/* Login / User Button */}
           {!user ? (
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className={`
       btn rounded-full px-6 py-2 text-lg font-medium border-2 
       transition duration-300 flex items-center gap-2 
@@ -133,7 +133,7 @@ const Navbar = () => {
             >
               <LogIn className="size-5" />
               Masuk
-            </a>
+            </Link>
           ) : (
             <div className="relative group">
               <button
