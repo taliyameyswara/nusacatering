@@ -1,15 +1,45 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import Loading from "../Loading";
+
+const SkeletonCard = () => {
+  return (
+    <div className="bg-gray-200 animate-pulse rounded-2xl  overflow-hidden">
+      <div className="w-full h-48 bg-gray-300" />
+      <div className="p-4">
+        <div className="h-6 bg-gray-300 rounded mb-2" />
+        <div className="h-4 bg-gray-300 rounded w-3/4" />
+      </div>
+    </div>
+  );
+};
 
 const Package = () => {
   const navigate = useNavigate();
   const { data, loading, error } = useFetch("/packages"); // Fetch semua paket
 
-  // Tampilkan loading state
+  // Skeleton loading placeholder
   if (loading) {
-    return <Loading />;
+    return (
+      <section id="paket" className="py-16 bg-light">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl text-center font-serif text-black mb-4">
+            Layanan Paket Kami
+          </h2>
+          <p className="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Kami menyediakan berbagai paket catering yang dapat disesuaikan
+            dengan kebutuhan acara Anda. Temukan layanan terbaik untuk momen
+            spesial Anda!
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
   }
 
   // Tampilkan error jika ada
