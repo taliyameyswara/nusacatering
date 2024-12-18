@@ -8,7 +8,7 @@ import {
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import Modal from "./Modal";
+import ModalConfirmation from "./ModalConfirmation";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -193,7 +193,7 @@ const Navbar = () => {
       </nav>
 
       {/* Modal Logout */}
-      <Modal
+      <ModalConfirmation
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={confirmLogout}

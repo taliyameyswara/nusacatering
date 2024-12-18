@@ -1,7 +1,7 @@
 import React from "react";
 import Loading from "./Loading";
 
-const Modal = ({
+const ModalConfirmation = ({
   isOpen,
   onClose,
   onConfirm,
@@ -13,7 +13,7 @@ const Modal = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+      <div className="bg-white rounded-xl shadow-lg p-6 w-96">
         {isLoading ? (
           <Loading />
         ) : (
@@ -29,7 +29,7 @@ const Modal = ({
               </button>
               <button
                 onClick={onConfirm}
-                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-red-600"
+                className="px-4 py-1.5 bg-red-800 text-white rounded-lg hover:bg-red-700"
               >
                 Keluar
               </button>
@@ -41,4 +41,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default ModalConfirmation;
