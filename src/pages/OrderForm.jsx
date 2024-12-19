@@ -146,7 +146,7 @@ const OrderForm = () => {
 
   const sendWhatsAppMessage = (message) => {
     const whatsappApiUrl = "https://api.whatsapp.com/send";
-    const phone = "6287827776565";
+    const phone = "6281314615546";
     const url = `${whatsappApiUrl}?phone=${phone}&text=${message}`;
 
     window.open(url, "_blank");
@@ -166,7 +166,7 @@ const OrderForm = () => {
 
   return (
     <div className="min-h-screen h-full bg-gradient flex items-center justify-center py-10 px-4">
-      <div className="max-w-xl w-full mx-auto bg-white shadow-lg rounded-2xl p-8 mt-16">
+      <div className="max-w-xl w-full mx-auto bg-white shadow-lg rounded-2xl p-8 mt-16 mb-20">
         <h2 className="text-xl font-medium text-gray-800 mb-6 text-center">
           Form Pemesanan
         </h2>
